@@ -92,7 +92,7 @@ const LandingPage = () => {
       totalSlots: 45,
       availableSlots: 18,
       features: ['EV Charging', '24/7 Security', 'Covered'],
-      image: 'https://images.unsplash.com/photo-1506521782020-18925f46c2bf?auto=format&fit=crop&w=600&q=80'
+      image: '/images/downtown_central_garage.jpg'
     },
     {
       id: 'tech-plaza',
@@ -104,7 +104,7 @@ const LandingPage = () => {
       totalSlots: 30,
       availableSlots: 12,
       features: ['VIP Valet', 'EV Fast Charge', 'CCTV'],
-      image: 'https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=600&q=80'
+      image: '/images/tech_plaza_hub.jpg'
     },
     {
       id: 'westside-mall',
@@ -116,7 +116,7 @@ const LandingPage = () => {
       totalSlots: 60,
       availableSlots: 24,
       features: ['Accessible Ramp', 'Wide Bays', 'Direct Mall Entry'],
-      image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=600&q=80'
+      image: '/images/westside_mall_park.jpg'
     }
   ];
 

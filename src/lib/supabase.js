@@ -18,15 +18,15 @@ export const INITIAL_ZONES = [
 export const INITIAL_LOCATIONS = [
   {
     id: 'loc-1',
-    name: 'Executive Floor & City Center Plaza',
-    address: '100 Broadway Ave, Midtown, NY',
+    name: 'Downtown Central Garage',
+    address: '100 Main Street, Financial District, NY',
     city: 'New York',
     rating: 4.9,
-    pricePerHour: 12,
-    totalSlots: 12,
-    availableSlots: 8,
-    facilities: ['24/7 CCTV Telemetry', 'Covered Shaded Bays', 'Near Elevator & Barrier Gate', 'ALPR Camera Scan'],
-    image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=600&q=80'
+    pricePerHour: 8,
+    totalSlots: 45,
+    availableSlots: 18,
+    facilities: ['EV Charging', '24/7 Security', 'Covered'],
+    image: '/images/downtown_central_garage.jpg'
   },
   {
     id: 'loc-2',
@@ -35,22 +35,22 @@ export const INITIAL_LOCATIONS = [
     city: 'New York',
     rating: 4.8,
     pricePerHour: 15,
-    totalSlots: 10,
-    availableSlots: 6,
+    totalSlots: 30,
+    availableSlots: 12,
     facilities: ['150kW DC Fast Chargers', 'Priority EV Bays', 'CCS & NACS Connectors', 'Solar Roof Canopy'],
-    image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=600&q=80'
+    image: '/images/tech_plaza_hub.jpg'
   },
   {
     id: 'loc-3',
-    name: 'Standard Economy Multilevel Garage',
-    address: '42 Wall Street, Financial District, NY',
+    name: 'Westside Metro Mall Park',
+    address: '880 Westside Ave, Shopping District, NY',
     city: 'New York',
-    rating: 4.6,
-    pricePerHour: 8,
-    totalSlots: 16,
-    availableSlots: 12,
-    facilities: ['Wide Bay Parking', '24/7 Valet Guard', 'Economic Rates', 'Automated Payment Kiosk'],
-    image: 'https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?auto=format&fit=crop&w=600&q=80'
+    rating: 4.7,
+    pricePerHour: 6,
+    totalSlots: 60,
+    availableSlots: 24,
+    facilities: ['Accessible Ramp', 'Wide Bays', 'Direct Mall Entry'],
+    image: '/images/westside_mall_park.jpg'
   },
   {
     id: 'loc-4',
@@ -62,7 +62,7 @@ export const INITIAL_LOCATIONS = [
     totalSlots: 8,
     availableSlots: 5,
     facilities: ['Disability Ramp Access', 'VIP Valet Service', 'Direct Terminal Ramp', 'Security Escort'],
-    image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80'
+    image: '/images/downtown_central_garage.jpg'
   }
 ];
 
