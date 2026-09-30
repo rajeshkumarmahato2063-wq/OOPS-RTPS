@@ -49,9 +49,17 @@ const AdminDashboard = () => {
 
   // Today's calculation metrics
   const todayStr = new Date().toISOString().split('T')[0];
-  const todaysBookings = bookings.filter(b => {
-    const bDate = b.startTime ? new Date(b.startTime).toISOString().split('T')[0] : todayStr;
-    return bDate === todayStr;
+  const todaysBookings = (bookings || []).filter(b => {
+    if (!b) return false;
+    try {
+      const dateVal = b.startTime || b.createdAt;
+      if (!dateVal) return true;
+      const parsed = new Date(dateVal);
+      if (isNaN(parsed.getTime())) return true;
+      return parsed.toISOString().split('T')[0] === todayStr;
+    } catch (e) {
+      return true;
+    }
   });
   const todaysBookingsCount = todaysBookings.length;
   const todaysRevenue = todaysBookings.reduce((sum, b) => sum + (Number(b.totalPrice) || 0), 0);

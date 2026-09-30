@@ -20,6 +20,7 @@ const ProtectedRoute = ({ allowedRoles = ['user', 'staff', 'admin'] }) => {
   }
 
   if (!allowedRoles.includes(user.role)) {
+    const targetRole = allowedRoles.find(r => r === 'admin') || allowedRoles.find(r => r === 'staff') || 'user';
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-center p-6 space-y-4">
         <div className="p-4 rounded-2xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
@@ -29,13 +30,23 @@ const ProtectedRoute = ({ allowedRoles = ['user', 'staff', 'admin'] }) => {
         <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
           Your account role (<strong className="text-rose-400 uppercase font-mono">{user.role}</strong>) does not have permission to view Staff or Administrator controls.
         </p>
-        <Link
-          to={user.role === 'staff' ? '/staff' : user.role === 'admin' ? '/admin' : '/user'}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition-all"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Return to Authorized Dashboard</span>
-        </Link>
+
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <button
+            onClick={() => switchRole(targetRole)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-lg shadow-purple-600/30 transition-all hover:scale-105"
+          >
+            <span>⚡ Switch to {targetRole.toUpperCase()} Role & Access</span>
+          </button>
+
+          <Link
+            to={user.role === 'staff' ? '/staff' : user.role === 'admin' ? '/admin' : '/user'}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-bold text-xs transition-all"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Return to {user.role.toUpperCase()} Dashboard</span>
+          </Link>
+        </div>
       </div>
     );
   }

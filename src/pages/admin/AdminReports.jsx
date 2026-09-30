@@ -42,10 +42,18 @@ const AdminReports = () => {
     const dayName = daysOfWeek[d.getDay()];
     
     // Count bookings matching dateStr or generate representative real distribution
-    const count = bookings.filter(b => {
-      const bDate = b.createdAt ? new Date(b.createdAt).toISOString().split('T')[0] : dateStr;
-      return bDate === dateStr;
-    }).length || (i === 6 ? bookings.length : Math.max(2, (i + 1) * 3 % 11));
+    const count = (bookings || []).filter(b => {
+      if (!b) return false;
+      try {
+        const timeVal = b.createdAt || b.startTime;
+        if (!timeVal) return false;
+        const parsed = new Date(timeVal);
+        if (isNaN(parsed.getTime())) return false;
+        return parsed.toISOString().split('T')[0] === dateStr;
+      } catch (e) {
+        return false;
+      }
+    }).length || (i === 6 ? (bookings || []).length : Math.max(2, (i + 1) * 3 % 11));
 
     const revenue = count * 18;
 
